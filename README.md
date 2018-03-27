@@ -10,3 +10,7 @@ another library: https://github.com/soonuse/gdew029z10_2.9inch_e-paper_b/blob/ma
 
 a promising library: https://github.com/soonuse/gdew029z10_2.9inch_e-paper_b/blob/master/raspberrypi/python/main.py
 
+temperature barometer-sensor library: https://learn.sparkfun.com/tutorials/bmp180-barometric-pressure-sensor-hookup-
+
+temperature humidity-sensor: https://create.arduino.cc/projecthub/attari/temperature-monitoring-with-dht22-arduino-15b013
+
