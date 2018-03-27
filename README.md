@@ -1,1 +1,12 @@
 # MobileWeatherStation
+
+E-paper screen info: https://www.waveshare.com/wiki/2.9inch_e-Paper_Module?Amazon
+
+e-paper library: https://github.com/ZinggJM/GxEPD
+
+use GxGDEH029A1 library for the 2.9 inch display
+
+another library: https://github.com/soonuse/gdew029z10_2.9inch_e-paper_b/blob/master/raspberrypi/python/epd2in9b.py
+
+a promising library: https://github.com/soonuse/gdew029z10_2.9inch_e-paper_b/blob/master/raspberrypi/python/main.py
+
