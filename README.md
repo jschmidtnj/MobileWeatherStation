@@ -16,3 +16,5 @@ temperature barometer-sensor library: https://learn.sparkfun.com/tutorials/bmp18
 
 temperature humidity-sensor: https://create.arduino.cc/projecthub/attari/temperature-monitoring-with-dht22-arduino-15b013
 
+https://github.com/soonuse/epd-library-python
+
