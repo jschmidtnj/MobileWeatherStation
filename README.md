@@ -18,3 +18,7 @@ temperature humidity-sensor: https://create.arduino.cc/projecthub/attari/tempera
 
 https://github.com/soonuse/epd-library-python
 
+https://github.com/adafruit/Adafruit-SSD1331-OLED-Driver-Library-for-Arduino
+
+https://gist.github.com/TheRayTracer/dd12c498e3ecb9b8b47f
+
