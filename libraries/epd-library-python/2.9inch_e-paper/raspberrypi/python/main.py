@@ -29,58 +29,8 @@ import time
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-import peewee
-from peewee import *
-import RPi.GPIO as GPIO
-import serial
-import os
-
-#button input:
-GPIO.setmode(GPIO.BCM)
-main_button_pin = 15
-GPIO.setup(main_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
-#mysql database stuff
-db = MySQLDatabase('WeatherStationData', user='station', passwd='data')
-
-delay_time = 100 #ms
-
-class Data(Model):
-    windSpeed = CharField()
-    humidity = CharField()
-    temp_1 = CharField()
-    temp_2 = CharField()
-    avg_temp = CharField() 
-    altitude = CharField()
-    pressure = CharField()
-    
-    class Meta:
-        database = db
-
-db.create_tables([Data])
-
-port = '/dev/ttyUSB0'
-rate = 115200
-ser = serial.Serial(port, rate)
-ser.flushInput()
 
 def main():
-    #get data:
-    data = str(ser.readline())
-    data_parsed = [x for x in data.split(',')] #split by comma
-    speed = data_parsed[1]
-    temp_1 = data_parsed[2]
-    temp_2 = data_parsed[3]
-    avg_temp = data_parsed[4]
-    humidity = data_parsed[5]
-    alt = data_parsed[6]
-    pressure = data_parsed[7]
-    
-    #add data to database:
-    datapoint = Data.create(windSpeed = speed, humidity = humidity, temp_1 = temp_1, temp_2 = temp_2, avg_temp = avg_temp, altitude = alt, pressure = pressure)
-    
-    #send data to github as csv...
-    
     epd = epd2in9.EPD()
     epd.init(epd.lut_full_update)
     
@@ -168,8 +118,6 @@ def main():
         epd.set_frame_memory(time_image.rotate(270), 80, 80)
         epd.display_frame()
     '''
-    delay(delay_time)
 
 if __name__ == '__main__':
     main()
-

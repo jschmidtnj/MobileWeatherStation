@@ -1,3 +1,9 @@
 [submodule "epd-library-python"]
 	path = epd-library-python
 	url = https://github.com/soonuse/epd-library-python
+[submodule "Adafruit-SSD1331-OLED-Driver-Library-for-Arduino"]
+	path = Adafruit-SSD1331-OLED-Driver-Library-for-Arduino
+	url = https://github.com/adafruit/Adafruit-SSD1331-OLED-Driver-Library-for-Arduino
+[submodule "libraries/Arduino"]
+	path = libraries/Arduino
+	url = https://github.com/esp8266/Arduino/

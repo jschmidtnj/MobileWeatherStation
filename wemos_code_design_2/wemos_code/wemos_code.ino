@@ -48,7 +48,7 @@ const char* MQpassword = "hereboy";
 //
 const char* MAGIC_WORD = "XYZZYPQQRT";
 #define PUBLISH_DELAY  10000
-#define SLEEP_DELAY 2000
+#define SLEEP_DELAY 500
 #define DEEP_SLEEP_SECONDS  10
 //const char* mqtt_server = "broker.hivemq.com"; //This is a public server - no username/pwd
 // Sleep delay is how long Wemos goes into sleep mode before re-checking --
@@ -72,24 +72,16 @@ DHT dht(DHTPIN, DHTTYPE);
 //Set up anemometer
 #define signalPin 13
 //GPIO13 in  WeMos D1 R2 is D7
-bool mode_1_rpm = false;
-bool mode_2_rpm = not mode_1_rpm;
 bool mode_1_speed = false;
 bool mode_2_speed = not mode_1_speed;
 
-double current_time_rpm = 0;
-double previous_time_rpm = 0;
-bool print_now_rpm = false;
 double current_time_speed = 0;
 double previous_time_speed = 0;
 bool print_now_speed = false;
 
 unsigned int diameter = 1; //in feet
 unsigned int num_decimal = 2;
-unsigned int rpm_pin = 2;
 unsigned int speed_pin = 3;
-unsigned int delay_time = 10; //ms
-double rpm_data = 0;
 double speed_data = 0;
 
 
@@ -115,8 +107,6 @@ SFE_BMP180 pressure;
 
 void setup_alt_temp()
 {
-  Serial.begin(9600);
-  Serial.println("REBOOT");
 
   // Initialize the sensor (it is important to get calibration values stored on the device).
 
@@ -288,8 +278,8 @@ void loop() {
     lastMsg = now;
     temp = dht.readTemperature(true);
     hum = dht.readHumidity();
-    snprintf (msg1, 20, "%d", (int) temp);
-    snprintf (msg2, 20, "%d", (int) hum);
+    //snprintf (msg1, 20, "%d", (int) temp);
+    //snprintf (msg2, 20, "%d", (int) hum);
     Serial.print("Published :" );
     Serial.print(MQTopic1);
     Serial.print(" with value: " );
@@ -301,10 +291,10 @@ void loop() {
     Serial.println(msg2);
     client.publish(MQTopic2, msg2);
     //loop_alt_temp();
-    get_rpm_and_speed();
+    get_speed();
     //print the data:
     int avg_temp = (temp + measured_temp) / 2;
-    Serial.println("Data:" + String(rpm_data, num_decimal) + "," + String(speed_data, num_decimal) + "," + String(avg_temp, num_decimal) + "," + String(hum, num_decimal) + "," + String(measured_altitude, num_decimal) + "," + String(measured_pressure, num_decimal) + ",");
+    Serial.println("Data," + String(speed_data, num_decimal) + "," + String(temp, num_decimal) + "," + String(measured_temp, num_decimal) + "," + String(avg_temp, num_decimal) + "," + String(hum, num_decimal) + "," + String(measured_altitude, num_decimal) + "," + String(measured_pressure, num_decimal) + ",");
   }
   //ESP.deepSleep(DEEP_SLEEP_SECONDS * 1000000);
   //digitalWrite(BUILTIN_LED, LOW);
@@ -324,22 +314,9 @@ void loop() {
 
 
 
-void get_rpm_and_speed() {
+void get_speed() {
   // put your main code here, to run repeatedly:
   //RPM data input
-  mode_1_rpm = digitalRead(signalPin);
-  if (mode_1_rpm == mode_2_rpm) {
-    mode_2_rpm = not mode_1_rpm;
-    current_time_rpm = micros();
-    if (print_now_rpm == true) {
-      rpm_data = (1000000 * 60 / (current_time_rpm - previous_time_rpm)); //print the rpm
-      print_now_rpm = not print_now_rpm;
-    }
-    else {
-      print_now_rpm = not print_now_rpm;
-    }
-    previous_time_rpm = current_time_rpm;
-  }
 
   //speed data input
   mode_1_speed = digitalRead(signalPin);
@@ -348,7 +325,7 @@ void get_rpm_and_speed() {
     current_time_speed = micros();
     if (print_now_speed == true) {
       //mph = rpm * 60min/hr * pi * diameter_of_wheel (feet) / 5280 ft/mile
-      speed_data = (1000000 * 60 / (current_time_speed - previous_time_speed)) * (60 * PI * diameter / 5280); //print the rpm
+      speed_data = (1000000 * 60 / (current_time_speed - previous_time_speed)) * (60 * PI * diameter / 5280); //get the speed
       print_now_speed = not print_now_speed;
     }
     else {
@@ -356,8 +333,7 @@ void get_rpm_and_speed() {
     }
     previous_time_speed = current_time_speed;
   }
-
-  rpm_data = 700;
+  
   speed_data = 60.55;
 }
 
