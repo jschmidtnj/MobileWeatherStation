@@ -37,8 +37,9 @@ import os
 
 #button input:
 GPIO.setmode(GPIO.BCM)
-main_button_pin = 15
+main_button_pin = 3
 GPIO.setup(main_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+state_1 = GPIO.input(main_button_pin)
 
 #mysql database stuff
 db = MySQLDatabase('WeatherStationData', user='station', passwd='data')
@@ -65,6 +66,15 @@ ser = serial.Serial(port, rate)
 ser.flushInput()
 
 def main():
+    button_state = GPIO.input(main_button_pin)
+    if button_state != state_1:
+      time.sleep(1)
+      button_state = GPIO.input(main_button_pin)
+      if button_state == state_1:
+        print("shutdown")
+      else:
+        print("send data")
+      state_1 = button_state
     #get data:
     data = str(ser.readline())
     data_parsed = [x for x in data.split(',')] #split by comma
