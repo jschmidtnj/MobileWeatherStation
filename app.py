@@ -114,13 +114,13 @@ def main():
     char_width = 5
     content = 'Anemometer Data:'
     draw.text(((epd2in9.EPD_HEIGHT / 2 - char_width * len(content)), line_height * 1 - 15), content, font=font, fill=0)
-    content = 'Wind Speed: '
+    content = 'Wind Speed: ' + speed
     draw.text(((epd2in9.EPD_HEIGHT / 4 - char_width * len(content)), line_height * 2), content, font=font, fill=0)
-    content = 'Humidity: '
+    content = 'Humidity: ' + humidity
     draw.text(((3 * epd2in9.EPD_HEIGHT / 4 - char_width * len(content)), line_height * 2), content, font=font, fill=0)
-    content = 'Temp 1:'
+    content = 'Temp 1: ' + temp_1
     draw.text(((epd2in9.EPD_HEIGHT / 4 - char_width * len(content)), line_height * 3), content, font=font, fill=0)
-    content = 'Temp 2:'
+    content = 'Temp 2: ' + temp_2
     draw.text(((3 * epd2in9.EPD_HEIGHT / 4 - char_width * len(content)), line_height * 3), content, font=font, fill=0)
     
     #If there´s time, display icons if cold or hot, windy or not windy, etc.
