@@ -294,6 +294,14 @@ void loop() {
     get_speed();
     //print the data:
     int avg_temp = (temp + measured_temp) / 2;
+    avg_temp = 50;
+    speed_data = 51;
+    temp = 52;
+    measured_temp = 53;
+    hum = 54;
+    measured_pressure = 55;
+    measured_altitude = 56;
+    
     Serial.println("Data," + String(speed_data, num_decimal) + "," + String(temp, num_decimal) + "," + String(measured_temp, num_decimal) + "," + String(avg_temp, num_decimal) + "," + String(hum, num_decimal) + "," + String(measured_altitude, num_decimal) + "," + String(measured_pressure, num_decimal) + ",");
   }
   //ESP.deepSleep(DEEP_SLEEP_SECONDS * 1000000);
