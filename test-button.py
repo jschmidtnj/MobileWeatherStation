@@ -1,12 +1,19 @@
 import RPi.GPIO as GPIO
 import time
 
+#button input:
 GPIO.setmode(GPIO.BCM)
-
-GPIO.setup(3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+main_button_pin = 3
+GPIO.setup(main_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+state_1 = GPIO.input(main_button_pin)
 
 while True:
-    input_state = GPIO.input(3)
-    if input_state == False:
-        print('Button Pressed')
-        time.sleep(0.2)
+    button_state = GPIO.input(main_button_pin)
+    if button_state != state_1:
+      time.sleep(1)
+      button_state = GPIO.input(main_button_pin)
+      if button_state == state_1:
+        print("shutdown")
+      else:
+        print("send data")
+      state_1 = button_state
