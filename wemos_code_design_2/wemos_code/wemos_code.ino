@@ -302,7 +302,7 @@ void loop() {
     measured_pressure = 55;
     measured_altitude = 56;
     
-    Serial.println("Data," + String(speed_data, num_decimal) + "," + String(temp, num_decimal) + "," + String(measured_temp, num_decimal) + "," + String(avg_temp, num_decimal) + "," + String(hum, num_decimal) + "," + String(measured_altitude, num_decimal) + "," + String(measured_pressure, num_decimal) + ",");
+    Serial.println("Data," + String(speed_data, num_decimal) + "," + String(temp, num_decimal) + "," + String(measured_temp, num_decimal) + "," + String(avg_temp, num_decimal) + "," + String(hum, num_decimal) + "," + String(measured_altitude, num_decimal) + "," + String(measured_pressure, num_decimal) + ",DataEnd,");
   }
   //ESP.deepSleep(DEEP_SLEEP_SECONDS * 1000000);
   //digitalWrite(BUILTIN_LED, LOW);
