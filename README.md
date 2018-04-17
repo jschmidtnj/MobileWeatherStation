@@ -22,3 +22,4 @@ https://github.com/adafruit/Adafruit-SSD1331-OLED-Driver-Library-for-Arduino
 
 https://gist.github.com/TheRayTracer/dd12c498e3ecb9b8b47f
 
+https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/anemometer-moving-in-the-wind_bjgpy13gb__F0000.png
