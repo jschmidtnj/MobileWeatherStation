@@ -65,6 +65,10 @@ rate = 115200
 ser = serial.Serial(port, rate)
 ser.flushInput()
 
+def send_data():
+    my_path = os.path.dirname(os.path.abspath(__file__))
+    envoy.run('./end-script.sh', cwd=my_path)
+
 def main():
     button_state = GPIO.input(main_button_pin)
     if button_state != state_1:
@@ -72,6 +76,7 @@ def main():
       button_state = GPIO.input(main_button_pin)
       if button_state == state_1:
         print("shutdown")
+        os.system('sudo shutdown now')
       else:
         print("send data")
       state_1 = button_state
