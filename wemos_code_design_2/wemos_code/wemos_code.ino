@@ -148,8 +148,9 @@ char msg1[20], msg2[20];
 char MQTopic1[50], MQTopic2[50];
 char ControlTopic[50];
 char BoardMac4[5];
-int value = 0;
-float temp, hum, freq = 0;
+float temp = 0;
+float hum = 0;
+float freq = 0;
 int tm = 0;
 int dt, ta, ha;
 
@@ -278,8 +279,6 @@ void loop() {
     lastMsg = now;
     temp = dht.readTemperature(true);
     hum = dht.readHumidity();
-    //snprintf (msg1, 20, "%d", (int) temp);
-    //snprintf (msg2, 20, "%d", (int) hum);
     Serial.print("Published :" );
     Serial.print(MQTopic1);
     Serial.print(" with value: " );
@@ -290,7 +289,6 @@ void loop() {
     Serial.print(" with value: " );
     Serial.println(msg2);
     client.publish(MQTopic2, msg2);
-    //loop_alt_temp();
     get_speed();
     //print the data:
     int avg_temp = (temp + measured_temp) / 2;
@@ -301,7 +299,8 @@ void loop() {
     hum = 54;
     measured_pressure = 55;
     measured_altitude = 56;
-    
+    snprintf (msg1, 20, "%d", (int) temp);
+    snprintf (msg2, 20, "%d", (int) hum);
     Serial.println("Data," + String(speed_data, num_decimal) + "," + String(temp, num_decimal) + "," + String(measured_temp, num_decimal) + "," + String(avg_temp, num_decimal) + "," + String(hum, num_decimal) + "," + String(measured_altitude, num_decimal) + "," + String(measured_pressure, num_decimal) + ",DataEnd,");
   }
   //ESP.deepSleep(DEEP_SLEEP_SECONDS * 1000000);
