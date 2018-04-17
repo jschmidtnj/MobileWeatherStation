@@ -1,5 +1,6 @@
 import RPi.GPIO as GPIO
 import time
+import os
 
 #button input:
 GPIO.setmode(GPIO.BCM)
@@ -14,6 +15,7 @@ while True:
       button_state = GPIO.input(main_button_pin)
       if button_state == state_1:
         print("shutdown")
+        os.system('sudo shutdown now')
       else:
         print("send data")
       state_1 = button_state
