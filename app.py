@@ -39,6 +39,7 @@ import os
 GPIO.setmode(GPIO.BCM)
 main_button_pin = 3
 GPIO.setup(main_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+global state_1
 state_1 = GPIO.input(main_button_pin)
 
 #mysql database stuff
@@ -69,7 +70,8 @@ def send_data():
     my_path = os.path.dirname(os.path.abspath(__file__))
     envoy.run('./end-script.sh', cwd=my_path)
 
-def main(state_1):
+def main():
+    global state_1
     button_state = GPIO.input(main_button_pin)
     if button_state != state_1:
       time.sleep(1)
@@ -131,13 +133,13 @@ def main(state_1):
         char_width = 5
         content = 'Anemometer Data:'
         draw.text(((epd2in9.EPD_HEIGHT / 2 - char_width * len(content)), line_height * 1 - 15), content, font=font, fill=0)
-        content = 'Wind Speed: ' + speed
+        content = 'Wind: ' + speed
         draw.text(((epd2in9.EPD_HEIGHT / 4 - char_width * len(content)), line_height * 2), content, font=font, fill=0)
-        content = 'Humidity: ' + humidity
+        content = 'Humid: ' + humidity
         draw.text(((3 * epd2in9.EPD_HEIGHT / 4 - char_width * len(content)), line_height * 2), content, font=font, fill=0)
-        content = 'Temp 1: ' + temp_1
+        content = 'Temp-1: ' + temp_1
         draw.text(((epd2in9.EPD_HEIGHT / 4 - char_width * len(content)), line_height * 3), content, font=font, fill=0)
-        content = 'Temp 2: ' + temp_2
+        content = 'Temp-2: ' + temp_2
         draw.text(((3 * epd2in9.EPD_HEIGHT / 4 - char_width * len(content)), line_height * 3), content, font=font, fill=0)
         
         #If there´s time, display icons if cold or hot, windy or not windy, etc.
@@ -188,7 +190,6 @@ def main(state_1):
         time.sleep(delay_time / 1000)
 
 if __name__ == '__main__':
-    state_1 = GPIO.input(main_button_pin)
     while True:
-        main(state_1)
+        main()
 
