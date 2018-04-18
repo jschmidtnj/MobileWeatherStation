@@ -25,6 +25,7 @@
  ##
 
 import epd2in9
+import envoy
 import time
 from PIL import Image
 from PIL import ImageDraw
@@ -67,6 +68,7 @@ ser = serial.Serial(port, rate)
 ser.flushInput()
 
 def send_data():
+    #optional
     my_path = os.path.dirname(os.path.abspath(__file__))
     envoy.run('./end-script.sh', cwd=my_path)
 
@@ -77,10 +79,13 @@ def main():
       time.sleep(1)
       button_state = GPIO.input(main_button_pin)
       if button_state == state_1:
+        print("send data")
+        send_data()
         print("shutdown")
         os.system('sudo shutdown now')
       else:
         print("send data")
+        send_data()
       state_1 = button_state
     #get data:
     data = str(ser.readline())
