@@ -78,14 +78,11 @@ def main():
     if button_state != state_1:
       time.sleep(1)
       button_state = GPIO.input(main_button_pin)
-      if button_state == state_1:
+      if button_state != state_1:
         print("send data")
         send_data()
         print("shutdown")
         os.system('sudo shutdown now')
-      else:
-        print("send data")
-        send_data()
       state_1 = button_state
     #get data:
     data = str(ser.readline())
