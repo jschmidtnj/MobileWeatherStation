@@ -59,9 +59,9 @@ const char* MAGIC_WORD = "XYZZYPQQRT";
 
 
 
-//Set up the DHT11
-#define DHTPIN 4 //This is GPIO4 which is WeMos D2. Probably just hide this from students?????
-#define DHTTYPE DHT11
+//Set up the DHT22
+#define DHTPIN 0//This is GPIO0 which is WeMos D3.
+#define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
 
 
@@ -70,8 +70,8 @@ DHT dht(DHTPIN, DHTTYPE);
 
 
 //Set up anemometer
-#define signalPin 13
-//GPIO13 in  WeMos D1 R2 is D7
+#define signalPin 14
+//GPIO14 in  WeMos D1 R2 is D5
 bool mode_1_speed = false;
 bool mode_2_speed = not mode_1_speed;
 
@@ -95,9 +95,9 @@ double speed_data = 0;
 
 
 
-int measured_altitude = 0;
-int measured_temp = 0;
-int measured_pressure = 0;
+float measured_altitude = 0;
+float measured_temp = 0;
+float measured_pressure = 0;
 
 // You will need to create an SFE_BMP180 object, here called "pressure":
 
@@ -259,7 +259,7 @@ void setup() {
   Serial.print("Board Mac Address:");
   Serial.println(board_info.mac());
   setup_wifi();
-  //setup_alt_temp();
+  setup_alt_temp();
   dht.begin();
   client.setServer(mqtt_server, 1883);
   client.setCallback(callback);
@@ -279,6 +279,7 @@ void loop() {
     lastMsg = now;
     temp = dht.readTemperature(true);
     hum = dht.readHumidity();
+    loop_alt_temp();
     Serial.print("Published :" );
     Serial.print(MQTopic1);
     Serial.print(" with value: " );
@@ -291,14 +292,14 @@ void loop() {
     client.publish(MQTopic2, msg2);
     get_speed();
     //print the data:
-    int avg_temp = (temp + measured_temp) / 2;
-    avg_temp = 50;
-    speed_data = 51;
-    temp = 52;
-    measured_temp = 53;
-    hum = 54;
-    measured_pressure = 55;
-    measured_altitude = 56;
+    float avg_temp = (temp + measured_temp) / 2;
+    //avg_temp = 50;
+    //speed_data = 51;
+    //temp = 52;
+    //measured_temp = 53;
+    //hum = 54;
+    //measured_pressure = 55;
+    //measured_altitude = 56;
     snprintf (msg1, 20, "%d", (int) temp);
     snprintf (msg2, 20, "%d", (int) hum);
     Serial.println("Data," + String(speed_data, num_decimal) + "," + String(temp, num_decimal) + "," + String(measured_temp, num_decimal) + "," + String(avg_temp, num_decimal) + "," + String(hum, num_decimal) + "," + String(measured_altitude, num_decimal) + "," + String(measured_pressure, num_decimal) + ",DataEnd,");
