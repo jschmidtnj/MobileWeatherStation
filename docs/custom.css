@@ -1,0 +1,79 @@
+
+
+/*add parallax scrolling*/
+.paral{
+	min-height: 800px;
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: 50% 50%;
+}
+
+.paral p{
+	font-size: 24px;
+	color:#f5f5f5;
+	text-align: center;
+	line-height: 60px;
+}
+
+.paral h1 {
+	color: rgba(255, 255, 255, 0.8);
+	font-size: 60px;
+	text-align: center;
+	padding-top: 60px;
+	line-height: 100px;
+}
+
+.hero-header {
+	
+}
+
+.hero-image {
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/hero-background.jpg");
+}
+
+.about-section{
+	
+}
+
+.about-image{
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/about-background.jpg");
+}
+
+.story-section{
+
+}
+
+.story-image{
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/story-background.jpg");
+}
+
+.pricing-section{
+	
+}
+
+.pricing-image{
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/pricing-background.jpg");
+}
+
+.connect-section{
+	margin-bottom: 0;
+}
+
+/*remove bottom margin from Jumbotron*/
+.jumbotron{
+	margin-bottom: 0;
+	border-radius: 0px;
+}
+
+.navbar{
+	background:rgba(255,255,255,1);
+}
+
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+	padding-top: 2rem;
+}
+
+footer{
+
+}
