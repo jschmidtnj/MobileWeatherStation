@@ -89,13 +89,20 @@ def main():
     print(data)
     data_parsed = [x for x in data.split(',')] #split by comma
     if len(data_parsed) > 7:
-        speed = data_parsed[1]
-        temp_1 = data_parsed[2]
-        temp_2 = data_parsed[3]
-        avg_temp = data_parsed[4]
-        humidity = data_parsed[5]
-        alt = data_parsed[6]
-        pressure = data_parsed[7]
+        if data_parsed[1] != "nan":
+            speed = data_parsed[1]
+        if data_parsed[2] != "nan":
+            temp_1 = data_parsed[2]
+        if data_parsed[3] != "nan":
+            temp_2 = data_parsed[3]
+        if data_parsed[4] != "nan":
+            avg_temp = data_parsed[4]
+        if data_parsed[5] != "nan":
+            humidity = data_parsed[5]
+        if data_parsed[6] != "nan":
+            alt = data_parsed[6]
+        if data_parsed[7] != "nan":
+            pressure = data_parsed[7]
     
         #add data to database:
         datapoint = Data.create(windSpeed = speed, humidity = humidity, temp_1 = temp_1, temp_2 = temp_2, avg_temp = avg_temp, altitude = alt, pressure = pressure)
