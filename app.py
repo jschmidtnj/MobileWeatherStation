@@ -42,6 +42,20 @@ main_button_pin = 3
 GPIO.setup(main_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 global state_1
 state_1 = GPIO.input(main_button_pin)
+global speed
+speed = ""
+global temp_1
+temp_1 = ""
+global temp_2
+temp_2 = ""
+global avg_temp 
+avg_temp = ""
+global humidity
+humidity = ""
+global alt 
+alt = ""
+global pressure
+pressure = ""
 
 #mysql database stuff
 db = MySQLDatabase('WeatherStationData', user='station', passwd='data')
@@ -74,6 +88,15 @@ def send_data():
 
 def main():
     global state_1
+    global speed
+    global temp_1
+    global temp_2
+    global avg_temp 
+    global humidity
+    global alt 
+    global pressure
+
+
     button_state = GPIO.input(main_button_pin)
     if button_state != state_1:
       time.sleep(1)
