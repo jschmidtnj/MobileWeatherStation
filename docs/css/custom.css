@@ -47,20 +47,20 @@
 	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/about-background.jpg");
 }
 
-.story-section{
+.people-section{
 
 }
 
-.story-image{
-	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/story-background.jpg");
+.people-image{
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/people-background.jpg");
 }
 
-.pricing-section{
+.data-section{
 	
 }
 
-.pricing-image{
-	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/pricing-background.jpg");
+.data-image{
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/data-background.jpg");
 }
 
 .connect-section{
