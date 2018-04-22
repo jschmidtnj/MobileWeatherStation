@@ -36,7 +36,7 @@
 }
 
 .hero-image {
-	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/hero-background.jpg");
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/mobileweatherstation/master/docs/assets/hero-background.jpg");
 }
 
 .about-section{
@@ -44,7 +44,7 @@
 }
 
 .about-image{
-	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/about-background.jpg");
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/mobileweatherstation/master/docs/assets/about-background.jpg");
 }
 
 .people-section{
@@ -52,7 +52,7 @@
 }
 
 .people-image{
-	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/people-background.jpg");
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/mobileweatherstation/master/docs/assets/people-background.jpg");
 }
 
 .data-section{
@@ -60,7 +60,7 @@
 }
 
 .data-image{
-	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/social-network-website/master/assets/data-background.jpg");
+	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/mobileweatherstation/master/docs/assets/data-background.jpg");
 }
 
 .connect-section{
