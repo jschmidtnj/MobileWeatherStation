@@ -93,7 +93,7 @@ def send_data():
     envoy.run('./end-script.sh', cwd=my_path)
 
 #create interrupt for sending the data:
-send_data_interrupt = Timer(10, stopAndDoThis)
+send_data_interrupt = Timer(5, send_data)
 send_data_interrupt.start()
 
 def main():
