@@ -1,8 +1,8 @@
 .graph_styling {
-  width: 635px;
-  height: 400px;
-  margin: 150;
-  padding: 50;
+  width: 100%;
+  height: 500px;
+  margin: 0;
+  padding: 0;
   float: left;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .data-image{
-	background-image: linear-gradient( rgba(0, 0, 0, .75), rgba(0, 0, 0, 0.5) ), url("https://raw.githubusercontent.com/jschmidtnj/mobileweatherstation/master/docs/assets/data-background.jpg");
+	background-color: white;
 }
 
 .connect-section{
