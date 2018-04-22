@@ -1,239 +1,82 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
-<meta content="utf-8" http-equiv="encoding">
-<title>Chart using XML Data</title>
+  <title>Weather Station</title>
+  <meta charset="utf-8">
+  <meta name="description" content="A Mobile, Remote Weather Station">
+  <meta name="author" content="Joshua Schmidt">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/assets/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/css/custom.css" rel="stylesheet" type="text/css">
 <!-- Import JQuery Right now to avoid errors -->
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/d3js/3.5.17/d3.min.js" charset="utf-8"></script>
 <script src="https://cdn.jsdelivr.net/npm/taucharts@1/build/production/tauCharts.min.js" type="text/javascript"></script>
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/taucharts@1/build/production/tauCharts.min.css">
-<script type="text/javascript">
-    window.onload = function() {
-        var dataPoints = [];
-	 
-        function getDataPointsFromCSV(csv, column) {
-            var dataPoints = csvLines = points = [];
-            csvLines = csv.split(/[\r?\n|\r|\n]+/);
-            for (var i = 0; i < csvLines.length; i++)
-                if (csvLines[i].length > 0) {
-                    points = csvLines[i].split(",");
-                    var y_axis_data = (points[column]);
-                    if (y_axis_data == "NaN"){
-                    	y_axis_data = "0"
-                    }
-                    dataPoints.push({
-                        y_axis: parseFloat((y_axis_data).slice(1, (points[1]).length - 1)),
-                        x_axis: parseFloat(i)
-                    });
-                }
-            return dataPoints;
-        }
-	
-	jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-		var column = 0;
-		var windspeed_chart = new tauCharts.Chart({
-			data: getDataPointsFromCSV(data, column),           
-            y: 'y_axis',
-            x: 'x_axis',
-            type: 'line',
-            guide:{
-              padding:{l:70, t:10, b:70,r:10},
-              showGridLines:'xy',
-              y:{
-                label:{
-                  text:'WindSpeed (mph)',
-                  padding:-15
-                }
-              },
-              x:{
-                label:'Count',
-              }
-            },
-            plugins: [
-		        tauCharts.api.plugins.get('tooltip')()
-		    ]
-        });
-        windspeed_chart.renderTo('#windspeed');
-	});
+  <!-- adding custom scripts -->
+    <script src="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/js/scripts.js"> </script>
 
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 1;
-    var humidity_chart = new tauCharts.Chart({
-      data: getDataPointsFromCSV(data, column),           
-            y: 'y_axis',
-            x: 'x_axis',
-            type: 'line',
-            guide:{
-              padding:{l:70, t:10, b:70,r:10},
-              showGridLines:'xy',
-              y:{
-                label:{
-                  text:'humidity',
-                  padding:-15
-                }
-              },
-              x:{
-                label:'Count',
-              }
-            },
-            plugins: [
-            tauCharts.api.plugins.get('tooltip')()
-        ]
-        });
-        humidity_chart.renderTo('#humidity');
-  });
 
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 2;
-    var temp_1_chart = new tauCharts.Chart({
-      data: getDataPointsFromCSV(data, column),           
-            y: 'y_axis',
-            x: 'x_axis',
-            type: 'line',
-            guide:{
-              padding:{l:70, t:10, b:70,r:10},
-              showGridLines:'xy',
-              y:{
-                label:{
-                  text:'temp_1 (F)',
-                  padding:-15
-                }
-              },
-              x:{
-                label:'Count',
-              }
-            },
-            plugins: [
-            tauCharts.api.plugins.get('tooltip')()
-        ]
-        });
-        temp_1_chart.renderTo('#temp_1');
-  });
 
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 3;
-    var temp_2_chart = new tauCharts.Chart({
-      data: getDataPointsFromCSV(data, column),           
-            y: 'y_axis',
-            x: 'x_axis',
-            type: 'line',
-            guide:{
-              padding:{l:70, t:10, b:70,r:10},
-              showGridLines:'xy',
-              y:{
-                label:{
-                  text:'Temp 2 (F)',
-                  padding:-15
-                }
-              },
-              x:{
-                label:'Count',
-              }
-            },
-            plugins: [
-            tauCharts.api.plugins.get('tooltip')()
-        ]
-        });
-        temp_2_chart.renderTo('#temp_2');
-  });
-
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 4;
-    var avg_temp_chart = new tauCharts.Chart({
-      data: getDataPointsFromCSV(data, column),           
-            y: 'y_axis',
-            x: 'x_axis',
-            type: 'line',
-            guide:{
-              padding:{l:70, t:10, b:70,r:10},
-              showGridLines:'xy',
-              y:{
-                label:{
-                  text:'avg_temp (F)',
-                  padding:-15
-                }
-              },
-              x:{
-                label:'Count',
-              }
-            },
-            plugins: [
-            tauCharts.api.plugins.get('tooltip')()
-        ]
-        });
-        avg_temp_chart.renderTo('#avg_temp');
-  });
-
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 5;
-    var altitude_chart = new tauCharts.Chart({
-      data: getDataPointsFromCSV(data, column),           
-            y: 'y_axis',
-            x: 'x_axis',
-            type: 'line',
-            guide:{
-              padding:{l:70, t:10, b:70,r:10},
-              showGridLines:'xy',
-              y:{
-                label:{
-                  text:'altitude (m)',
-                  padding:-15
-                }
-              },
-              x:{
-                label:'Count',
-              }
-            },
-            plugins: [
-            tauCharts.api.plugins.get('tooltip')()
-        ]
-        });
-        altitude_chart.renderTo('#altitude');
-  });
-
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 5;
-    var pressure_chart = new tauCharts.Chart({
-      data: getDataPointsFromCSV(data, column),           
-            y: 'y_axis',
-            x: 'x_axis',
-            type: 'line',
-            guide:{
-              padding:{l:70, t:10, b:70,r:10},
-              showGridLines:'xy',
-              y:{
-                label:{
-                  text:'pressure (Pa)',
-                  padding:-15
-                }
-              },
-              x:{
-                label:'Count',
-              }
-            },
-            plugins: [
-            tauCharts.api.plugins.get('tooltip')()
-        ]
-        });
-        pressure_chart.renderTo('#pressure');
-    });
-  }
-</script>
-<style>
-.graph_styling {
-  width: 635px;
-  height: 400px;
-  margin: 150;
-  padding: 50;
-  float: left;
-}
-
-</style>
 </head>
 <body>
-	<div id="windspeed" class="graph_styling"></div>
+  <nav class="navbar navbar-expand-md navbar-light fixed-top">
+    <a class="navbar-brand" href="#">Weather Station</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#people">People</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Data">Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#connect">Connect</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main">
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="hero-header jumbotron paral hero-image" id="hero">
+      <div class="container">
+        <h1 class="display-3" align="center">Mobile Weather Station</h1>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <p><a class="btn btn-primary btn-lg" href="#about" role="button">Connect &raquo;</a></p>
+      </div>
+    </div>
+
+    <div class="about-section jumbotron paral about-image container-fluid text-center" id="about">
+      <div class="container">
+        <h1 class="display-3" align="center">About</h1>
+        <p class="lead" align="center">This is a remote weather station with real-time data logging. View the code here:  <a href="https://github.com/jschmidtnj/MobileWeatherStation">Github</a> </p>
+      </div>
+    </div>
+
+    <div class="people-section jumbotron paral people-image" id="people">
+      <div class="container">
+        <h1 class="display-3" align="center">People</h1>
+        <p class="lead" align="center">Meet the team - Joshua, Lorie, and Ang.</p>
+      </div>
+    </div>
+
+    <div class="Data-section jumbotron paral Data-image" id="Data">
+      <div class="container">
+        <h1 class="display-3" align="center">Data</h1>
+        <p class="lead" align="center">
+          <div id="windspeed" class="graph_styling"></div>
   <br/>
   <br/>
   <br/>
@@ -260,6 +103,41 @@
   <div id="pressure" class="graph_styling"></div>
   <br/>
   <br/>
-  <br/>
+  <br/></p>
+      </div>
+    </div>
+
+    <div class="connect-section jumbotron justify-content-center" id="connect">
+      <div class="container">
+        <h1 class="display-3" align="center">Connect</h1>
+        <br/>
+        <br/>
+        <br/>
+        <form class="form-inline my-2 my-lg-0 justify-content-center">
+          <input class="form-control mr-sm-2" type="text" placeholder="Name" aria-label="Name">
+          <input class="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enter</button>
+        </form>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+    </div>
+
+    <hr>
+</main>
+
+<footer class="container">
+  <p>&copy; Locnet 2018</p>
+</footer>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 </html>
