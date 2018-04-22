@@ -1,46 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
 <title>Chart using XML Data</title>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<!-- Import JQuery Right now to avoid errors -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/d3js/3.5.17/d3.min.js" charset="utf-8"></script>
+<script src="https://cdn.jsdelivr.net/npm/taucharts@1/build/production/tauCharts.min.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/taucharts@1/build/production/tauCharts.min.css">
 <script type="text/javascript">
     window.onload = function() {
         var dataPoints = [];
 	 
-        function getDataPointsFromCSV(csv) {
+        function getDataPointsFromCSV(csv, column) {
             var dataPoints = csvLines = points = [];
-            csvLines = csv.split(/[\r?\n|\r|\n]+/);         
-		        
+            csvLines = csv.split(/[\r?\n|\r|\n]+/);
             for (var i = 0; i < csvLines.length; i++)
                 if (csvLines[i].length > 0) {
                     points = csvLines[i].split(",");
+                    var y_axis_data = (points[column]);
+                    console.log(y_axis_data);
+                    if (y_axis_data == "NaN"){
+                    	y_axis_data = "0"
+                    }
                     dataPoints.push({ 
-                        x: parseFloat(i), 
-                        y: parseFloat(points[0])
+                    	type: 'us',
+                        x_axis: parseFloat(i),
+                        y_axis: parseFloat((y_axis_data).slice(1, (points[1]).length - 1))
                     });
                 }
             return dataPoints;
         }
 	
-	$.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-	    var chart = new CanvasJS.Chart("chartContainer", {
-		    title: {
-		         text: "Chart from CSV",
-		    },
-		    data: [{
-		         type: "line",
-		         dataPoints: getDataPointsFromCSV(data)
-		      }]
-	     });
-		
-	      chart.render();
-
+	jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
+		var column = 1;
+		var chart = new tauCharts.Chart({
+            guide:{
+              padding:{l:70, t:10, b:70,r:10},
+              showGridLines:'xy',
+              color:{
+                brewer:{
+                  us:'color-us',
+                  bug:'color-bug'
+                }
+              },
+              y:{
+                label:{
+                  text:'Count of completed entities',
+                  padding:50
+                }
+              },
+              x:{
+                label:'Month'
+              }
+            },
+            data: getDataPointsFromCSV(data, column),
+            type: 'line',           
+            x: 'x_axis',
+            y: 'y_axis',
+            color: 'type'
+        });
+        chart.renderTo('#line');
 	});
   }
 </script>
+<style>
+	body,#line {
+    height:100%
+}
+.color-us {
+  stroke:blue
+}
+.color-bug {
+  stroke:red
+}
+</style>
 </head>
 <body>
-	<div id="chartContainer" style="width:100%; height:300px;"></div>
+	<div id="line"></div>
 </body>
 </html>
