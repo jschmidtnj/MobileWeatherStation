@@ -224,14 +224,13 @@ $(document).ready(function(){
 var $form = $('form#connect-form'),
     url = 'https://script.google.com/macros/s/AKfycbz77HuNxSiVaaODk46yAl8XZRTLS_kMGUUY5-zAEqJg9eplBrQ/exec'
 
-$('#submit-form').on('click', function(e) {
-  e.preventDefault();
-  var jqxhr = $.ajax({
-    url: url,
-    method: "GET",
-    dataType: "json",
-    data: $form.serializeObject()
-  }).success(
-    // do something
-  );
-})
+
+  const scriptURL = '<SCRIPT URL>'
+  const form = document.forms['submit-to-google-sheet']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
