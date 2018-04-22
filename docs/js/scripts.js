@@ -221,7 +221,7 @@ $(document).ready(function(){
   });
 });
 
-var $form = $('form#test-form'),
+var $form = $('form#connect-form'),
     url = 'https://script.google.com/macros/s/AKfycbz77HuNxSiVaaODk46yAl8XZRTLS_kMGUUY5-zAEqJg9eplBrQ/exec'
 
 $('#submit-form').on('click', function(e) {
@@ -233,5 +233,6 @@ $('#submit-form').on('click', function(e) {
     data: $form.serializeObject()
   }).success(
     // do something
+    console.log("success");
   );
 })
