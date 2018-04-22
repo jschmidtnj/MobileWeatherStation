@@ -24,9 +24,11 @@
  # THE SOFTWARE.
  ##
 
+from datetime import datetime
 import epd2in9
 import envoy
 import time
+from threading import Timer
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -42,6 +44,8 @@ main_button_pin = 3
 GPIO.setup(main_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 global state_1
 state_1 = GPIO.input(main_button_pin)
+global the_time_and_date
+the_time_and_date = str(datetime.now())
 global speed
 speed = ""
 global temp_1
@@ -63,6 +67,7 @@ db = MySQLDatabase('WeatherStationData', user='station', passwd='data')
 delay_time = 100 #ms
 
 class Data(Model):
+    the_time_and_date = CharField()
     windSpeed = CharField()
     humidity = CharField()
     temp_1 = CharField()
@@ -83,11 +88,17 @@ ser.flushInput()
 
 def send_data():
     #optional
+    print("sending data")
     my_path = os.path.dirname(os.path.abspath(__file__))
     envoy.run('./end-script.sh', cwd=my_path)
 
+#create interrupt for sending the data:
+send_data_interrupt = Timer(10, stopAndDoThis)
+send_data_interrupt.start()
+
 def main():
     global state_1
+    global the_time_and_date
     global speed
     global temp_1
     global temp_2
@@ -128,7 +139,7 @@ def main():
             pressure = data_parsed[7]
     
         #add data to database:
-        datapoint = Data.create(windSpeed = speed, humidity = humidity, temp_1 = temp_1, temp_2 = temp_2, avg_temp = avg_temp, altitude = alt, pressure = pressure)
+        datapoint = Data.create(the_time_and_date = str(datetime.now()), windSpeed = speed, humidity = humidity, temp_1 = temp_1, temp_2 = temp_2, avg_temp = avg_temp, altitude = alt, pressure = pressure)
         
         #send data to github as csv...
         
