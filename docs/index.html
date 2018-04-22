@@ -1,142 +1,46 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>ASDF</title>
-	<meta charset="utf-8">
-	<meta name="description" content="A location-based social network">
-	<meta name="author" content="Joshua Schmidt">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/assets/favicon.ico">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<!-- Custom styles for this template -->
-	<link href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/css/custom.css" rel="stylesheet" type="text/css">
-	<!-- Import JQuery Right now to avoid errors -->
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+<title>Chart using XML Data</title>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script type="text/javascript">
+    window.onload = function() {
+        var dataPoints = [];
+	 
+        function getDataPointsFromCSV(csv) {
+            var dataPoints = csvLines = points = [];
+            csvLines = csv.split(/[\r?\n|\r|\n]+/);         
+		        
+            for (var i = 0; i < csvLines.length; i++)
+                if (csvLines[i].length > 0) {
+                    points = csvLines[i].split(",");
+                    dataPoints.push({ 
+                        x: parseFloat(points[0]), 
+                        y: parseFloat(points[1])
+                    });
+                }
+            return dataPoints;
+        }
+	
+	$.get("https://canvasjs.com/services/data/datapoints.php?xstart=5&ystart=10&length=10&type=csv", function(data) {
+	    var chart = new CanvasJS.Chart("chartContainer", {
+		    title: {
+		         text: "Chart from CSV",
+		    },
+		    data: [{
+		         type: "line",
+		         dataPoints: getDataPointsFromCSV(data)
+		      }]
+	     });
+		
+	      chart.render();
+
+	});
+  }
+</script>
 </head>
 <body>
-	<p>hi</p>
-	<nav class="navbar navbar-expand-md navbar-light fixed-top">
-		<a class="navbar-brand" href="#">Locnet</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarsExampleDefault">
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="#about">About</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#story">Story</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#pricing">Pricing</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#connect">Connect</a>
-				</li>
-			</ul>
-		</div>
-	</nav>
-
-	<main role="main">
-		<!-- Main jumbotron for a primary marketing message or call to action -->
-		<div class="hero-header jumbotron paral hero-image" id="hero">
-			<div class="container">
-				<h1 class="display-3" align="center">Join the Social Network Revolution!</h1>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<p><a class="btn btn-primary btn-lg" href="#connect" role="button">Connect &raquo;</a></p>
-			</div>
-		</div>
-
-		<div class="about-section jumbotron paral about-image container-fluid text-center" id="about">
-			<div class="container">
-				<h1 class="display-3" align="center">About</h1>
-				<p class="lead" align="center">Started in 2018 by Joshua Schmidt and Krishanu, Locnet is an intuitive, interactive mobile social-network platform. It is open-source, and encourages users to pursue in-person interaction as opposed to through the medium of the app.<br/><br/>To accomplish this, the platform is entirely based on location data, so friend groups can see where each other are to meet in person have fun. Being open-source, Locnet encourages users to inspect the code, to see that their data is not being misused. The user data is protected using blockchain.</p>
-			</div>
-		</div>
-
-		<div class="story-section jumbotron paral story-image" id="story">
-			<div class="container">
-				<h1 class="display-3" align="center">Story</h1>
-				<p class="lead" align="center">After seeing all of the problems with conventional social networks, and recognizing the potential in creating a completely new platform, we decided to do just that. The concept was to create a completely open platform that stresses meeting and connecting with new people, and stressing in-person interactions. The entire platform is location-based, meaning users can see in real-time if their friends are nearby and can then meet up with them. Nearby events, activities, shops, businesses, and attractions are shown in a personalized user-feed.</p>
-			</div>
-		</div>
-
-		<div class="pricing-section jumbotron paral pricing-image" id="pricing">
-			<div class="container">
-				<h1 class="display-3" align="center">Pricing</h1>
-				<p class="lead" align="center">Act fast to join an exclusive group of people who have lifetime ad-free access to this amazing new network.</p>
-			</div>
-		</div>
-
-		<div class="connect-section jumbotron justify-content-center" id="connect">
-			<div class="container">
-				<h1 class="display-3" align="center">Connect</h1>
-				<br/>
-				<br/>
-				<br/>
-				<form class="form-inline my-2 my-lg-0 justify-content-center">
-					<input class="form-control mr-sm-2" type="text" placeholder="Name" aria-label="Name">
-					<input class="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enter</button>
-				</form>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-				<br/>
-			</div>
-		</div>
-
-		<hr>
-	<div id="graphdiv2"
-  style="width:500px; height:300px;"></div>
-
-	</div> <!-- /container -->
-<script type="text/javascript">
-  g2 = new Dygraph(
-    document.getElementById("graphdiv2"),
-    "https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/assets/temperatures.csv", // path to CSV file
-    {}          // options
-  );
-</script>
-<script>
-		$(document).ready(function(){       
-			var scroll_start = 0;
-			var startchange = $('#startchange');
-			var offset = startchange.offset();
-			if (startchange.length){
-				$(document).scroll(function() { 
-					scroll_start = $(this).scrollTop();
-					if(scroll_start > offset.top) {
-						$(".navbar-default").css('background-color', '#f0f0f0');
-					} else {
-						$('.navbar-default').css('background-color', 'transparent');
-					}
-				});
-			}
-		});
-	</script>
-
-</main>
-
-<footer class="container">
-	<p>&copy; Locnet 2018</p>
-</footer>
-
-	<!-- Bootstrap core JavaScript
-		================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-		<!-- adding custom jquery scripts -->
-		<script src="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/js/scripts.js"> </script>
+	<div id="chartContainer" style="width:100%; height:300px;"></div>
 </body>
 </html>
