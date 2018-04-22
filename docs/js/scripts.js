@@ -221,12 +221,8 @@ $(document).ready(function(){
   });
 });
 
-var $form = $('form#connect-form'),
-    url = 'https://script.google.com/macros/s/AKfycbz77HuNxSiVaaODk46yAl8XZRTLS_kMGUUY5-zAEqJg9eplBrQ/exec'
-
-
-  const scriptURL = '<SCRIPT URL>'
-  const form = document.forms['submit-to-google-sheet']
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxt5aLzoW9YpmBfTYdsXPsBn3kaAtLz996laDlNEiSxl-P8-NI/exec'
+  const form = document.forms["submit-to-google-sheet"]
 
   form.addEventListener('submit', e => {
     e.preventDefault()
