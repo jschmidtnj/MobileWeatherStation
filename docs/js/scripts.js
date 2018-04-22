@@ -212,7 +212,7 @@ window.onload = function() {
 $(document).ready(function(){
 	$(window).on("scroll",function(){
   	var wn = $(window).scrollTop();
-    if(wn > 5000){
+    if(wn > 3000){
     	$(".navbar").css("background","rgba(255,255,255,.5)");
     }
     else{
