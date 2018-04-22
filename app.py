@@ -59,12 +59,14 @@ global alt
 alt = ""
 global pressure
 pressure = ""
-global last_time
-last_time = time.time()
 global epd
 epd = epd2in9.EPD()
 epd.init(epd.lut_full_update)
 
+global last_time_screen
+last_time_screen = time.time()
+global last_time_data
+last_time_data = time.time()
 global screen_delay
 screen_delay = .5 #minutes
 global data_delay
@@ -200,7 +202,8 @@ def main():
     global humidity
     global alt 
     global pressure
-    global last_time
+    global last_time_screen
+    global last_time_data
     global screen_delay
     global data_delay
 
@@ -242,7 +245,7 @@ def main():
         if ((time.time() - last_time_screen) / 1000) > screen_delay:
             show_on_screen()
 
-        if ((time.time() - last_time_screen) / 1000) > data_delay:
+        if ((time.time() - last_time_data) / 1000) > data_delay:
             send_data()
 
         #send data to github as csv...
