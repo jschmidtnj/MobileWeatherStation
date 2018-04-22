@@ -63,14 +63,15 @@ global epd
 epd = epd2in9.EPD()
 epd.init(epd.lut_full_update)
 
+current_time = time.time()
 global last_time_screen
-last_time_screen = time.time()
+last_time_screen = current_time
 global last_time_data
-last_time_data = time.time()
+last_time_data = current_time
 global screen_delay
 screen_delay = .5 #minutes
 global data_delay
-data_delay = 3 #minutes
+data_delay = .65 #minutes
 
 
 #mysql database stuff
@@ -244,6 +245,7 @@ def main():
         datapoint = Data.create(the_time_and_date = str(datetime.now()), windSpeed = speed, humidity = humidity, temp_1 = temp_1, temp_2 = temp_2, avg_temp = avg_temp, altitude = alt, pressure = pressure)
         
         current_time = time.time()
+        print((current_time - last_time_screen) / 1000)
         if ((current_time - last_time_screen) / 1000) > screen_delay:
             show_on_screen()
             last_time_screen = current_time
