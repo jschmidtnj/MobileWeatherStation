@@ -106,6 +106,7 @@ def send_data():
 
 #screen input:
 def show_on_screen():
+    print("send to screen")
     global epd
     '''
     # For simplicity, the arguments are explicit numerical coordinates
@@ -242,11 +243,14 @@ def main():
         #add data to database:
         datapoint = Data.create(the_time_and_date = str(datetime.now()), windSpeed = speed, humidity = humidity, temp_1 = temp_1, temp_2 = temp_2, avg_temp = avg_temp, altitude = alt, pressure = pressure)
         
-        if ((time.time() - last_time_screen) / 1000) > screen_delay:
+        current_time = time.time()
+        if ((current_time - last_time_screen) / 1000) > screen_delay:
             show_on_screen()
+            last_time_screen = current_time
 
-        if ((time.time() - last_time_data) / 1000) > data_delay:
+        if ((current_time - last_time_data) / 1000) > data_delay:
             send_data()
+            last_time_data = current_time
 
         #send data to github as csv...
 
