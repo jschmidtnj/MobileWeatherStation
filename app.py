@@ -223,7 +223,7 @@ def main():
       state_1 = button_state
     #get data:
     data = str(ser.readline())
-    print(data)
+    #print(data)
     data_parsed = [x for x in data.split(',')] #split by comma
     if len(data_parsed) > 7:
         if data_parsed[1] != "nan":
@@ -245,7 +245,7 @@ def main():
         datapoint = Data.create(the_time_and_date = str(datetime.now()), windSpeed = speed, humidity = humidity, temp_1 = temp_1, temp_2 = temp_2, avg_temp = avg_temp, altitude = alt, pressure = pressure)
         
         current_time = time.time()
-        print((current_time - last_time_screen) / 100)
+        #print((current_time - last_time_screen) / 100)
         if ((current_time - last_time_screen) / 100) > screen_delay:
             show_on_screen()
             last_time_screen = current_time
