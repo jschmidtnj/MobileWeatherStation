@@ -220,14 +220,3 @@ $(document).ready(function(){
     }
   });
 });
-
-//see https://github.com/jamiewilson/form-to-google-sheets
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxt5aLzoW9YpmBfTYdsXPsBn3kaAtLz996laDlNEiSxl-P8-NI/exec'
-  const form = document.forms["submit-to-google-sheet"]
-
-  form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
-      .catch(error => console.error('Error!', error.message))
-  })
