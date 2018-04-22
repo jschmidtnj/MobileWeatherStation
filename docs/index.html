@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Weather Station</title>
@@ -107,10 +108,11 @@
           <br/>
           <br/>
           <br/>
-          <form class="form-inline my-2 my-lg-0 justify-content-center">
-            <input class="form-control mr-sm-2" type="text" placeholder="Name" aria-label="Name">
-            <input class="form-control mr-sm-2" type="text" placeholder="Email" aria-label="Email">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Enter</button>
+          <form class="form-inline my-2 my-lg-0 justify-content-center" id="submit-to-google-sheet">
+            <input class="form-control mr-sm-2" name="email" type="email" placeholder="Email" aria-label="Email">
+            <input class="form-control mr-sm-2" name="firstName" type="text" placeholder="First Name" aria-label="First Name">
+            <input class="form-control mr-sm-2" name="lastName" type="text" placeholder="Last Name" aria-label="Last Name">
+            <button class="btn btn-outline-success my-2 my-sm-0" id="submit" type="submit">Enter</button>
           </form>
           <br/>
           <br/>
@@ -133,5 +135,17 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+      //see https://github.com/jamiewilson/form-to-google-sheets
+const scriptURL = 'https://script.google.com/macros/s/AKfycbz77HuNxSiVaaODk46yAl8XZRTLS_kMGUUY5-zAEqJg9eplBrQ/exec'
+  const form = document.forms["submit-to-google-sheet"]
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+    </script>
   </body>
   </html>
