@@ -233,6 +233,5 @@ $('#submit-form').on('click', function(e) {
     data: $form.serializeObject()
   }).success(
     // do something
-    console.log("success");
   );
 })
