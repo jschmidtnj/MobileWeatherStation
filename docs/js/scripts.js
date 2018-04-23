@@ -11,13 +11,9 @@ window.onload = function() {
                     if (y_axis_data == "NaN"){
                     	y_axis_data = "0"
                     }
-                    var x_axis_data = (points[0]);
-                    if (x_axis_data == "NaN"){
-                    	x_axis_data = "0"
-                    }
                     dataPoints.push({
                         y_axis: parseFloat((y_axis_data).slice(1, (points[1]).length - 1)),
-                        x_axis: parseFloat((x_axis_data).slice(1, (points[1]).length - 1))
+                        x_axis: parseFloat(i)
                     });
                 }
             return dataPoints;
