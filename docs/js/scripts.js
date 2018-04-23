@@ -20,7 +20,7 @@ window.onload = function() {
         }
 	
 	jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-		var column = 0;
+		var column = 1;
 		var windspeed_chart = new tauCharts.Chart({
 			data: getDataPointsFromCSV(data, column),           
             y: 'y_axis',
@@ -47,7 +47,7 @@ window.onload = function() {
 	});
 
   jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 1;
+    var column = 2;
     var humidity_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
             y: 'y_axis',
@@ -74,7 +74,7 @@ window.onload = function() {
   });
 
   jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 2;
+    var column = 3;
     var temp_1_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
             y: 'y_axis',
@@ -101,7 +101,7 @@ window.onload = function() {
   });
 
   jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 3;
+    var column = 4;
     var temp_2_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
             y: 'y_axis',
@@ -128,7 +128,7 @@ window.onload = function() {
   });
 
   jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 4;
+    var column = 5;
     var avg_temp_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
             y: 'y_axis',
@@ -155,7 +155,7 @@ window.onload = function() {
   });
 
   jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 5;
+    var column = 6;
     var altitude_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
             y: 'y_axis',
@@ -182,7 +182,7 @@ window.onload = function() {
   });
 
   jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
-    var column = 5;
+    var column = 7;
     var pressure_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
             y: 'y_axis',
@@ -212,7 +212,7 @@ window.onload = function() {
 $(document).ready(function(){
 	$(window).on("scroll",function(){
   	var wn = $(window).scrollTop();
-    if(wn > 1000){
+    if(wn > 2000){
     	$(".navbar").css("background","rgba(255,255,255,.5)");
     }
     else{
