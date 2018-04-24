@@ -69,9 +69,9 @@ last_time_screen = current_time
 global last_time_data
 last_time_data = current_time
 global screen_delay
-screen_delay = .05 #minutes
+screen_delay = 20 #minutes
 global data_delay
-data_delay = 15 #minutes
+data_delay = 10 #minutes
 
 
 #mysql database stuff
@@ -226,7 +226,7 @@ def main():
     #print(data)
     data_parsed = [x for x in data.split(',')] #split by comma
     if len(data_parsed) > 7:
-        if data_parsed[1] != "nan" and data_parsed[1] != "0.00":
+        if data_parsed[1] != "nan":
             speed = data_parsed[1]
         if data_parsed[2] != "nan" and data_parsed[2] != "0.00":
             temp_1 = data_parsed[2]
