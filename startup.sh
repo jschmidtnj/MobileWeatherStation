@@ -5,4 +5,5 @@ echo $ip4 >> ip-address.txt
 git add -A
 git commit -m "added ip-addresses"
 git push origin master
+python3 testdisplay.py
 python3 app.py
