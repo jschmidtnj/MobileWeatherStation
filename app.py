@@ -69,7 +69,7 @@ last_time_screen = current_time
 global last_time_data
 last_time_data = current_time
 global screen_delay
-screen_delay = 5 #minutes
+screen_delay = .15 #minutes
 global data_delay
 data_delay = 15 #minutes
 
