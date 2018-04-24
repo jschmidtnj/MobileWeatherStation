@@ -226,19 +226,19 @@ def main():
     #print(data)
     data_parsed = [x for x in data.split(',')] #split by comma
     if len(data_parsed) > 7:
-        if data_parsed[1] != "nan":
+        if data_parsed[1] != "nan" and data_parsed[1] != "0.00":
             speed = data_parsed[1]
-        if data_parsed[2] != "nan":
+        if data_parsed[2] != "nan" and data_parsed[2] != "0.00":
             temp_1 = data_parsed[2]
-        if data_parsed[3] != "nan":
+        if data_parsed[3] != "nan" and data_parsed[3] != "0.00":
             temp_2 = data_parsed[3]
-        if data_parsed[4] != "nan":
+        if data_parsed[4] != "nan" and data_parsed[4] != "0.00":
             avg_temp = data_parsed[4]
-        if data_parsed[5] != "nan":
+        if data_parsed[5] != "nan" and data_parsed[5] != "0.00":
             humidity = data_parsed[5]
-        if data_parsed[6] != "nan":
+        if data_parsed[6] != "nan" and data_parsed[6] != "0.00":
             alt = data_parsed[6]
-        if data_parsed[7] != "nan":
+        if data_parsed[7] != "nan" and data_parsed[7] != "0.00":
             pressure = data_parsed[7]
     
         #add data to database:
