@@ -16,6 +16,7 @@ unsigned int num_decimal = 2;
 unsigned int speed_pin = 3;
 
 #define num_loop 100
+#define mult_constant .25894
 unsigned int delay_in_between = 10; //ms
 
 void setup() {
@@ -46,7 +47,7 @@ RunningMedian get_speed(RunningMedian wind_speed_samples) {
     current_time_speed = micros();
     if (print_now_speed == true) {
       //mph = rpm * 60min/hr * pi * diameter_of_wheel (feet) / 5280 ft/mile
-      wind_speed_samples.add(long(1000000 * 60 / (current_time_speed - previous_time_speed + delay_in_between)) * (60 * PI * diameter / 5280)); //get the speed
+      wind_speed_samples.add(long(mult_constant * 1000000 * 60 / (current_time_speed - previous_time_speed + delay_in_between)) * (60 * PI * diameter / 5280)); //get the speed
       print_now_speed = not print_now_speed;
     }
     else {
