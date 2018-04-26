@@ -1,5 +1,22 @@
 # MobileWeatherStation
 
+## See the website: https://anemometer.ml/
+
+## Pictures:
+
+https://photos.app.goo.gl/s7rsp1NOIN0pSXKF3
+https://photos.app.goo.gl/MtEDudGlJoaqBYfv1
+https://photos.app.goo.gl/5Rs8EOyYQoLnrvp83
+https://photos.app.goo.gl/ZVBhuRqQ1aonho1K3
+https://photos.app.goo.gl/fF9p4nzz03dgmVnp1
+https://photos.app.goo.gl/8xA4HH8arvOQEntG3
+
+## Short summary:
+
+This mobile weather station has an altimeter, pressure sensor, wind-speed anemometer, and two temperature sensors for getting real-time weather data. It is completely off-the-grid with a solar panel, and displays the data on three different mediums - an e-ink display, a website, and a local mysql database on the raspberry pi. Once the write-up is done (this project is for a design class), I will link it here with more information.
+
+## Miscellaneous notes:
+
 ssh pi@155.246.113.68
 delete table data;
 https://github.com/jamiewilson/form-to-google-sheets
