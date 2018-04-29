@@ -1375,7 +1375,7 @@ const scriptURL = 'https://script.google.com/macros/s/AKfycbz77HuNxSiVaaODk46yAl
   </body>
   </html>
 
-```html
+```
 
 ### Website Custom Javascript for loading graphs:
 
