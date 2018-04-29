@@ -1668,7 +1668,6 @@ $(document).ready(function(){
 	
 }
 
-
 .data-image{
 	background-color: white;
 }
@@ -1676,7 +1675,7 @@ $(document).ready(function(){
 .connect-section{
 	margin-bottom: 0;
 }
-
+	
 /*remove bottom margin from Jumbotron*/
 .jumbotron{
 	margin-bottom: 0;
