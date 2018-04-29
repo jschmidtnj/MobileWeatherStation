@@ -4,7 +4,7 @@ window.onload = function() {
         function getDataPointsFromCSV(csv, column) {
             var dataPoints = csvLines = points = [];
             csvLines = csv.split(/[\r?\n|\r|\n]+/);
-            for (var i = 0; i < csvLines.length; i++)
+            for (var i = 0; i < csvLines.length; i+=5)
                 if (csvLines[i].length > 0) {
                     points = csvLines[i].split(",");
                     var y_axis_data = (points[column]);
