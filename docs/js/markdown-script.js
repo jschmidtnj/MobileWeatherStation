@@ -1,5 +1,5 @@
 window.onload = function(){
-jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/", function(data) {
+jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/FinalReport/README.md", function(data) {
     var text = document.getElementById('sourceTA').value,
         target = document.getElementById('markdown'),
         converter = new showdown.Converter(),
