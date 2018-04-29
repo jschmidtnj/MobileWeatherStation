@@ -7,3 +7,4 @@ jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/FinalRepor
 
       target.innerHTML = html;
 });
+});
