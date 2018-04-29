@@ -1614,8 +1614,7 @@ $(document).ready(function(){
   margin: 0;
   padding: 0;
   float: left;
-}
-	
+}	
 /*add parallax scrolling*/
 .paral{
 	min-height: 800px;
@@ -1672,8 +1671,7 @@ $(document).ready(function(){
 
 .connect-section{
 	margin-bottom: 0;
-}
-	
+}	
 /*remove bottom margin from Jumbotron*/
 .jumbotron{
 	margin-bottom: 0;
@@ -1683,7 +1681,6 @@ $(document).ready(function(){
 .navbar{
 	background:rgba(255,255,255,1);
 }
-
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
 	padding-top: 2rem;
