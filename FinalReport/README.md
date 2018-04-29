@@ -1688,10 +1688,8 @@ $(document).ready(function(){
 body {
 	padding-top: 2rem;
 }
-
+	
 footer{
 
 }
-
 ```
-
