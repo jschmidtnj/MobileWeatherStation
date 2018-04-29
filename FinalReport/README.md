@@ -333,16 +333,12 @@ With the scripts.js file explained, that is essentially how the website works. T
 ## Organization Chart with Roles and Responsibilities
 
 ## Supporting CAD drawings
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
+# a
+# a
+# a
+# a
+# a
+# a
 
 # Attachments
 
