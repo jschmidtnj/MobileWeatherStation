@@ -330,6 +330,8 @@ With the scripts.js file explained, that is essentially how the website works. T
 
 * Describe the results in terms of accomplishments, successful or unsuccessful. Provide recommendations to improve your system. Provide recommendations with regard to  improving  the  project in terms of enhancing  students basic knowledge gained.Describe any lessons learned and their applicability to your future design activities.
 
+# Attachments
+
 ## Organization Chart with Roles and Responsibilities
 
 ## Supporting CAD drawings
@@ -337,8 +339,6 @@ With the scripts.js file explained, that is essentially how the website works. T
 # a
 # a
 # a
-
-# Attachments
 
 ## The Code
 
