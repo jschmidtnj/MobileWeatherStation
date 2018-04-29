@@ -1,3 +1,6 @@
+<script src="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/FinalReport/custom.js"> </script>
+<link rel="stylesheet" type="text/css" href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/FinalReport/custom.css">
+
 Weather Anemometer Report
 
 By Joshua Schmidt, Lorie Rosado, and Angelina Contreras
