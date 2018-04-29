@@ -338,7 +338,6 @@ With the scripts.js file explained, that is essentially how the website works. T
 # a
 # a
 # a
-# a
 
 ## The Code
 
