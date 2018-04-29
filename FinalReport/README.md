@@ -341,7 +341,7 @@ With the scripts.js file explained, that is essentially how the website works. T
 
 ## The Code
 
-See [https://github.com/jschmidtnj/MobileWeatherStation](https://github.com/jschmidtnj/MobileWeatherStation) and [https://anemometer.ml/](https://anemometer.ml/) for the code in a more readable form.
+See [https://github.com/jschmidtnj/MobileWeatherStation](https://github.com/jschmidtnj/MobileWeatherStation) and [https://anemometer.ml/](https://anemometer.ml/) for the code with line numbers.
 
 ### Wemos
 
@@ -1608,7 +1608,6 @@ $(document).ready(function(){
 ### Custom CSS
 
 ```css
-
 .graph_styling {
   width: 100%;
   height: 500px;
@@ -1616,7 +1615,7 @@ $(document).ready(function(){
   padding: 0;
   float: left;
 }
-
+	
 /*add parallax scrolling*/
 .paral{
 	min-height: 800px;
@@ -1639,7 +1638,6 @@ $(document).ready(function(){
 	padding-top: 60px;
 	line-height: 100px;
 }
-
 
 .hero-header {
 	
