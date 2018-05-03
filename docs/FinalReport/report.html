@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Weather Station</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Weather Station Report">
+  <meta name="author" content="Joshua Schmidt">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/assets/favicon.ico">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Custom styles for this template -->
+  <link href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/css/markdown.css" rel="stylesheet" type="text/css">
+  <!-- Import JQuery Right now to avoid errors -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/d3js/3.5.17/d3.min.js" charset="utf-8"></script>
+  <!-- Get markdown to html converter -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.8.6/showdown.js.map"></script>
+  <!-- adding custom scripts -->
+  <script src="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/js/markdown-script.js" type=text/javascript></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-md navbar-light fixed-top">
+    <a class="navbar-brand" href="../../#">Weather Station</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../../#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../#data">Data</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../#team">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../#connect">Connect</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../../FinalReport/report.html">Report</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main role="main">
+    <div class="hero-header jumbotron paral hero-image" id="hero">
+    <div class="container">
+        <div id="markdown"></div>
+        <hr>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container">
+    <p>&copy; Weather Station 2018</p>
+  </footer>
+  
+  </body>
+</html>
