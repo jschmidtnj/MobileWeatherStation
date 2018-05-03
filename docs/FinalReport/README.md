@@ -1971,7 +1971,8 @@ $(document).ready(function(){
       $(".navbar").css("background","rgba(255,255,255,1)");
     }
   });
-}); ```
+});
+```
 
 ### Custom CSS
 
