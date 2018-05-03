@@ -15,7 +15,7 @@ https://photos.app.goo.gl/8xA4HH8arvOQEntG3
 
 This mobile weather station has an altimeter, pressure sensor, wind-speed anemometer, and two temperature sensors for getting real-time weather data. It is completely off-the-grid with a solar panel, and displays the data on three different mediums - an e-ink display, a website, and a local mysql database on the raspberry pi. Once the write-up is done (this project is for a design class), I will link it here with more information.
 
-## Final Report: https://github.com/jschmidtnj/MobileWeatherStation/tree/master/FinalReport
+## Final Report: https://github.com/jschmidtnj/MobileWeatherStation/tree/master/docs/FinalReport
 
 ## Miscellaneous notes:
 
