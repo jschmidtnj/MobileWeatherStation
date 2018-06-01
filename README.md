@@ -13,6 +13,14 @@ https://photos.app.goo.gl/8xA4HH8arvOQEntG3
 
 ## Short summary:
 
+
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/Django.svg?style=plastic)
+
+![apm](https://img.shields.io/apm/l/vim-mode.svg?style=plastic)
+
+![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg?style=plastic)
+
+
 This mobile weather station has an altimeter, pressure sensor, wind-speed anemometer, and two temperature sensors for getting real-time weather data. It is completely off-the-grid with a solar panel, and displays the data on three different mediums - an e-ink display, a website, and a local mysql database on the raspberry pi. Once the write-up is done (this project is for a design class), I will link it here with more information.
 
 ## Final Report: https://github.com/jschmidtnj/MobileWeatherStation/tree/master/docs/FinalReport
@@ -49,3 +57,5 @@ https://github.com/adafruit/Adafruit-SSD1331-OLED-Driver-Library-for-Arduino
 https://gist.github.com/TheRayTracer/dd12c498e3ecb9b8b47f
 
 https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/anemometer-moving-in-the-wind_bjgpy13gb__F0000.png
+
+http://shields.io/
