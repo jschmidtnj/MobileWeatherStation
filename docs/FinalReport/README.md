@@ -1601,17 +1601,17 @@ exit
   <meta name="description" content="A Mobile, Remote Weather Station">
   <meta name="author" content="Joshua Schmidt">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/assets/favicon.ico">
+  <link rel="icon" href="https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/docs/assets/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <!-- Custom styles for this template -->
-  <link href="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/css/custom.css" rel="stylesheet" type="text/css">
+  <link href="https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/docs/css/custom.css" rel="stylesheet" type="text/css">
   <!-- Import JQuery Right now to avoid errors -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
   <script src="https://cdn.jsdelivr.net/d3js/3.5.17/d3.min.js" charset="utf-8"></script>
   <script src="https://cdn.jsdelivr.net/npm/taucharts@1/build/production/tauCharts.min.js" type="text/javascript"></script>
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/taucharts@1/build/production/tauCharts.min.css">
   <!-- adding custom scripts -->
-  <script src="https://rawgit.com/jschmidtnj/MobileWeatherStation/master/docs/js/scripts.js"> </script>
+  <script src="https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/docs/js/scripts.js"> </script>
 
 
 
@@ -1772,7 +1772,7 @@ window.onload = function() {
             return dataPoints;
         }
   
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
+  jQuery.get("https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
     var column = 1;
     var windspeed_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
@@ -1799,7 +1799,7 @@ window.onload = function() {
         windspeed_chart.renderTo('#windspeed');
   });
 
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
+  jQuery.get("https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
     var column = 2;
     var humidity_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
@@ -1826,7 +1826,7 @@ window.onload = function() {
         humidity_chart.renderTo('#humidity');
   });
 
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
+  jQuery.get("https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
     var column = 3;
     var temp_1_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
@@ -1853,7 +1853,7 @@ window.onload = function() {
         temp_1_chart.renderTo('#temp_1');
   });
 
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
+  jQuery.get("https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
     var column = 4;
     var temp_2_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
@@ -1880,7 +1880,7 @@ window.onload = function() {
         temp_2_chart.renderTo('#temp_2');
   });
 
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
+  jQuery.get("https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
     var column = 5;
     var avg_temp_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
@@ -1907,7 +1907,7 @@ window.onload = function() {
         avg_temp_chart.renderTo('#avg_temp');
   });
 
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
+  jQuery.get("https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
     var column = 6;
     var altitude_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
@@ -1933,7 +1933,7 @@ window.onload = function() {
         });
         altitude_chart.renderTo('#altitude');
   });
-  jQuery.get("https://rawgit.com/jschmidtnj/MobileWeatherStation/master/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
+  jQuery.get("https://cdn.jsdelivr.net/gh/jschmidtnj/MobileWeatherStation/data/current_data_file.csv?xstart=5&ystart=10&length=10&type=csv", function(data) {
     var column = 7;
     var pressure_chart = new tauCharts.Chart({
       data: getDataPointsFromCSV(data, column),           
